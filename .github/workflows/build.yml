@@ -154,7 +154,12 @@ jobs:
 
       - name: Download all artifacts
         uses: actions/download-artifact@v3
-
+        
+      - name: Upload to API
+        run: |
+          cd artifact
+          curl -X POST -F "file=@$(ls)" https://api.yuxiangwang0525.com/atf/upload.php
+          
       - name: Upload Windows Installer
         run: |
           gh release upload ${{ github.ref_name }} NotepadNext-Windows-Qt$QT_RELEASE_VER-Installer/NotepadNext-${{ github.ref_name }}-Installer.exe
