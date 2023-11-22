@@ -869,7 +869,7 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/NotepadNext/dialogs/MainWindow.ui" line="17"/>
-        <source>Notepad Next[*]</source>
+        <source>Notepad Next BMSG Service Ver[*]</source>
         <translatorcomment>【不译】</translatorcomment>
         <translation></translation>
     </message>
@@ -1495,8 +1495,8 @@
     </message>
     <message>
         <location filename="../src/NotepadNext/dialogs/MainWindow.ui" line="727"/>
-        <source>About Notepad Next</source>
-        <translation>关于 Notepad Next</translation>
+        <source>About Notepad Next BMSG Service Ver</source>
+        <translation>关于 Notepad Next BMSG Service Ver</translation>
     </message>
     <message>
         <location filename="../src/NotepadNext/dialogs/MainWindow.ui" line="738"/>
