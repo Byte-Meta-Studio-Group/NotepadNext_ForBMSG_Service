@@ -1,41 +1,37 @@
-# Notepad Next
+# Action Debugger
 
-![Build Notepad Next](https://github.com/dail8859/NotepadNext/workflows/Build%20Notepad%20Next/badge.svg)
+Interactive debugger for GitHub Actions
 
-A cross-platform, reimplementation of Notepad++.
-
-Though the application overall is stable and usable, it should not be considered safe for critically important work.
-
-There are numerous bugs and half working implementations. Pull requests are greatly appreciated.
-
-![screenshot](/doc/screenshot.png)
-
-# Installation
-
-Packages are available for Windows, Linux, and MacOS.
-
-Windows packages are available as an installer or a stand-alone zip file on the [release](https://github.com/dail8859/NotepadNext/releases) page. The installer provides additional components such as an auto-updater and Windows context menu integration. You can easily install it with Winget:
-
-```powershell
-winget install dail8859.NotepadNext
+## Usage
+```
+steps:
+- name: Setup Debug Session
+  uses: csexton/debugger-action@master
 ```
 
-Linux packages can be obtained by downloading the stand-alone AppImage on the [release](https://github.com/dail8859/NotepadNext/releases) page or by installing the [flatpak](https://flathub.org/apps/details/com.github.dail8859.NotepadNext) by executing:
+In the log for the action you will see:
 
-```bash
-flatpak install flathub com.github.dail8859.NotepadNext
+```
+Running tmate...
+
+To connect to this session copy-n-paste the following into a terminal:
+
+ssh redactedMxoJ0pXmjredacted@nyc1.tmate.io
 ```
 
-MacOS disk images can be downloaded from the [release](https://github.com/dail8859/NotepadNext/releases) page.
+Simply follow the instructions and copy the ssh command into your terminal to create an ssh connection the running instance. The session will close immedeatly after closing the ssh connection to the running instance.
 
+There is a global timeout after 15 minutes. This will close any open ssh sessions. To prevent the session from being terminated run:
 
-# Development
-Current development is done using Visual Studio 2022 and Qt v6.2+ on Windows. This is also known to build successfully on various Linux distributions and macOS. Other platforms/compilers should be usable with minor modifications.
+```
+touch /tmp/keepalive
+```
 
-If you are familiar with building C++ Qt desktop applications with Qt Creator, then this should be as simple as opening `src/NotepadNext.pro` and build/run the project.
+## Acknowledgments
 
-If you are new to building C++ Qt desktop applications, there is a more detailed guide [here](/doc/Building.md).
+* [tmate.io](https://tmate.io)
+* Max Schmitt's [action-tmate](https://github.com/mxschmitt/action-tmate)
 
+### License
 
-# License
-This code is released under the [GNU General Public License version 3](http://www.gnu.org/licenses/gpl-3.0.txt).
+The action and associated scripts and documentation in this project are released under the MIT License.
